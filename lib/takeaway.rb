@@ -1,9 +1,11 @@
-require 'order'
+require './lib/order'
+
 class TakeAway
-  def initialize(menu:, order: nil, total: total)
+  def initialize(menu:, order: nil)
     @menu = menu
-    @order = order || Order.new
-    @total = total
+    @order = order || Order.new(menu)
+
+
   end
 
   def print_menu
@@ -11,22 +13,18 @@ class TakeAway
   end
 
   def place_order(dishes)
-    dishes.each do |dish, quantity|
-      order.add(dish, quantity)
-    end
+    add_dishes(dishes)
+    #sms.deliver
     order.total
   end
 
-  def total
-    item_totals
-  end
   private
 
   attr_reader :menu, :order
 
-  def item_totals
-    dishes.map do |dish, quantity|
-      menu.price(dish) + quantity
+  def add_dishes(dishes)
+    dishes.each do |dish, quantity|
+      order.add(dish, quantity)
     end
   end
 
