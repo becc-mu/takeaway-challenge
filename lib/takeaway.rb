@@ -5,7 +5,6 @@ class TakeAway
     @menu = menu
     @order = order || Order.new(menu)
 
-
   end
 
   def print_menu
@@ -14,7 +13,7 @@ class TakeAway
 
   def place_order(dishes)
     add_dishes(dishes)
-    #sms.deliver
+    # sms.deliver
     order.total
   end
 

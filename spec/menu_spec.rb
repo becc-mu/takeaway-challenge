@@ -21,11 +21,11 @@ describe Menu do
   end
 
   it 'confirms if a dish is on the menu' do
-    expect(menu.has_dish?(:fish)).to be true
+    expect(menu.dish?(:fish)).to be true
   end
 
   it 'confirms if a dish is not on the menu' do
-    expect(menu.has_dish?(:curry)).to be false
+    expect(menu.dish?(:curry)).to be false
   end
 
   it 'calculates prices' do

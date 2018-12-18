@@ -13,8 +13,8 @@ describe Order do
   end
 
   before do
-    allow(menu).to receive(:has_dish?).with(:fish).and_return(true)
-    allow(menu).to receive(:has_dish?).with(:soup).and_return(true)
+    allow(menu).to receive(:dish?).with(:fish).and_return(true)
+    allow(menu).to receive(:dish?).with(:soup).and_return(true)
 
     allow(menu).to receive(:price).with(:fish).and_return(6.50)
     allow(menu).to receive(:price).with(:soup).and_return(3.45)
@@ -26,7 +26,7 @@ describe Order do
   end
 
   it 'verify that my order is correct' do
-    allow(menu).to receive(:has_dish?).with(:curry).and_return(false)
+    allow(menu).to receive(:dish?).with(:curry).and_return(false)
     expect { order.add(:curry, 1) }.to raise_error "Curry is not available."
   end
 

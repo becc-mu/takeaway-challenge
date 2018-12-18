@@ -10,7 +10,7 @@ describe TakeAway do
   let(:dishes) { { fish: 3, chips: 2 } }
 
   before do
-  allow(order).to receive(:add)
+    allow(order).to receive(:add)
   end
 
   it 'shows list of dishes with prices' do
@@ -23,7 +23,7 @@ describe TakeAway do
   end
 
   it 'knows total sum of dishes ordered' do
-    #allow(order).to receive(:add)
+    # allow(order).to receive(:add)
     total = takeaway.place_order(dishes)
     expect(total).to eq(9.80)
   end
